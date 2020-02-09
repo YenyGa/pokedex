@@ -1,0 +1,20 @@
+export const POKEMON_TYPES = {
+  NORMAL: '#694f15',
+  FIRE: '#d68315',
+  WATER: '#21588f',
+  GRASS: '#2e690a',
+  ELECTRIC: '#e2e11c',
+  ICE: '#b4dcd9',
+  FIGHTING: '#a62406',
+  POISON: '#7344b8',
+  GROUND: '#82731b',
+  FLYING: '#9c8cbf',
+  PSYCHIC: '#b12e9d',
+  BUG: '#727e1a',
+  ROCK: '#694f15',
+  GHOST: '#2e2352',
+  DARK: '#4a3413',
+  DRAGON: '#372ca4',
+  STEEL: '#808287',
+  FAIRY: '#be91bc'
+};

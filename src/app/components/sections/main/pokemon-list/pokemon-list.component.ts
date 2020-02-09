@@ -4,6 +4,7 @@ import {LoadPokemonList, PokemonActionTypes, PokemonListLoaded} from '../../../.
 import {Actions, ofType} from '@ngrx/effects';
 import {take} from 'rxjs/operators';
 import {State} from '../../../../core/store';
+import {PokemonModel} from '../../../../core/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -12,6 +13,8 @@ import {State} from '../../../../core/store';
 })
 export class PokemonListComponent implements OnInit {
 
+  pokemonList: PokemonModel[];
+
   constructor(private store: Store<State>,
               private actions$: Actions) { }
 
@@ -19,8 +22,8 @@ export class PokemonListComponent implements OnInit {
     this.actions$.pipe(
       ofType<PokemonListLoaded>(PokemonActionTypes.PokemonListLoaded),
       take(1)
-    ).subscribe(result => {
-      console.log(result);
+    ).subscribe(({payload}) => {
+      this.pokemonList = payload.pokemonList;
     });
     this.store.dispatch(new LoadPokemonList());
   }

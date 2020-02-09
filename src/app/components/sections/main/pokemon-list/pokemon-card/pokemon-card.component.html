@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">
+      {{pokemon.name | titlecase}}
+    </div>
+    <img src="{{pokemon.imageUrl}}"
+         class="card-img-top"
+         alt="{{pokemon.name}}">
+    <div
+      class="row">
+     <span
+      class="badge"
+      [ngStyle]="{'background-color': getBadgeColor(type)}"
+      *ngFor="let type of pokemon.types">
+      {{type | uppercase}}
+    </span>
+    </div>
+  </div>
+</div>
