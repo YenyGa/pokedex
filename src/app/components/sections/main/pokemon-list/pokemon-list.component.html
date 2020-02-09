@@ -5,9 +5,7 @@
     placeholder="Search Pokemon by Name or Type"
     [formControl]="searchControl">
 </div>
-<div
-  class="row"
-  *ngIf="filteredList.length > 0">
+<div class="row">
   <app-pokemon-card
     class="card-container"
     *ngFor="let pokemon of filteredList"

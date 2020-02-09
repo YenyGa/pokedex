@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {LoadPokemonList, PokemonActionTypes, PokemonListLoaded} from '../../../../core/store/pokemon/pokemon.actions';
 import {Actions, ofType} from '@ngrx/effects';
-import {take} from 'rxjs/operators';
 import {State} from '../../../../core/store';
 import {PokemonModel} from '../../../../core/models/pokemon.model';
 import {FormControl} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import {take} from 'rxjs/operators';
+import {PokemonActionTypes, PokemonListLoaded} from '../../../../core/store/pokemon/pokemon.actions';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -19,13 +20,12 @@ export class PokemonListComponent implements OnInit {
   searchControl: FormControl;
 
   constructor(private store: Store<State>,
-              private actions$: Actions) { }
+              private actions$: Actions,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.searchControl = new FormControl('');
-    this.searchControl.valueChanges.subscribe(value => {
-      this.filteredList = this.filterList(value);
-    });
+    this.pokemonList = this.route.snapshot.data.pokemonList;
+    this.filteredList = this.route.snapshot.data.pokemonList;;
     this.actions$.pipe(
       ofType<PokemonListLoaded>(PokemonActionTypes.PokemonListLoaded),
       take(1)
@@ -33,7 +33,10 @@ export class PokemonListComponent implements OnInit {
       this.pokemonList = payload.pokemonList;
       this.filteredList = payload.pokemonList;
     });
-    this.store.dispatch(new LoadPokemonList());
+    this.searchControl = new FormControl('');
+    this.searchControl.valueChanges.subscribe(value => {
+      this.filteredList = this.filterList(value);
+    });
   }
 
   private filterList(searchKey: string): PokemonModel[] {
