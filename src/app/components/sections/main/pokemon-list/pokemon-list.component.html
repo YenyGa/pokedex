@@ -1,7 +1,16 @@
 <div class="row">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search Pokemon by Name or Type"
+    [formControl]="searchControl">
+</div>
+<div
+  class="row"
+  *ngIf="filteredList.length > 0">
   <app-pokemon-card
     class="card-container"
-    *ngFor="let pokemon of pokemonList"
+    *ngFor="let pokemon of filteredList"
     [pokemon]="pokemon">
   </app-pokemon-card>
 </div>
