@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {PokeApiService} from '../../../../core/services/poke-api.service';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {LoadPokemonList, PokemonActionTypes, PokemonListLoaded} from '../../../../core/store/pokemon/pokemon.actions';
+import {Actions, ofType} from '@ngrx/effects';
+import {take} from 'rxjs/operators';
+import {State} from '../../../../core/store';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -8,10 +12,17 @@ import {PokeApiService} from '../../../../core/services/poke-api.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor(private pokeApiService: PokeApiService) { }
+  constructor(private store: Store<State>,
+              private actions$: Actions) { }
 
   ngOnInit(): void {
-    this.pokeApiService.listPokemons().subscribe(result => console.log(result));
+    this.actions$.pipe(
+      ofType<PokemonListLoaded>(PokemonActionTypes.PokemonListLoaded),
+      take(1)
+    ).subscribe(result => {
+      console.log(result);
+    });
+    this.store.dispatch(new LoadPokemonList());
   }
 
 }

@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {reducers} from './store';
+import {StoreModule} from '@ngrx/store';
+import {PokemonEffects} from './store/pokemon/pokemon.effects';
+import {EffectsModule} from '@ngrx/effects';
 
 @NgModule({
   declarations: [],
   imports: [
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([
+      PokemonEffects
+    ]),
     CommonModule,
     HttpClientModule
   ]
