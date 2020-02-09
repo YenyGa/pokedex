@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  margin: 0 auto;
+  width: 55%;
+  .card-body {
+    padding: 4rem;
+    text-align: center;
+    .card-title {
+      background-color: #EEEEEE;
+      font-weight: 700;
+      margin-top: 2rem;
+      text-align: center;
+      &.main {
+        background-color: #292a2b;
+        color: white;
+      }
+    }
+    .badge {
+      margin-right: 1rem;
+      background-color: #b5b5b5;
+      border-radius: unset;
+    }
+    .info {
+      display: flex;
+      .card-text {
+        width: 50%;
+        &.left {
+          margin-right: 0.5rem;
+          text-align: end;
+        }
+        &.right {
+          margin-left: 0.5rem;
+          text-align: start;
+        }
+      }
+    }
+    .card-img-top {
+      width: 60%;
+      margin: 0 auto;
+    }
+    .type-text {
+      margin-left: 2.5rem;
+    }
+  }
+}

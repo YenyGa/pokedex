@@ -5,6 +5,8 @@ import {reducers} from './store';
 import {StoreModule} from '@ngrx/store';
 import {PokemonEffects} from './store/pokemon/pokemon.effects';
 import {EffectsModule} from '@ngrx/effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../../environments/environment';
 
 @NgModule({
   declarations: [],
@@ -14,7 +16,8 @@ import {EffectsModule} from '@ngrx/effects';
       PokemonEffects
     ]),
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ]
 })
 export class CoreModule { }

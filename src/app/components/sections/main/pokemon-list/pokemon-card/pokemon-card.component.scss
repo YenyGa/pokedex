@@ -1,10 +1,13 @@
 .card {
+  cursor: pointer;
   margin: 1rem;
+  text-align: center;
   .card-title {
     font-weight: 700;
     text-align: center;
   }
   .badge {
-    margin: 0 auto;
+    margin-right: 1rem;
+    border-radius: unset;
   }
 }

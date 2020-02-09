@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title main">
+      {{pokemon.name | titlecase}}
+    </div>
+    <div>Id #<span>{{pokemon.id}}</span></div>
+    <img src="{{pokemon.imageUrl}}"
+         class="card-img-top"
+         alt="{{pokemon.name}}">
+    <div>
+      <div
+        class="badge"
+        [ngStyle]="{'background-color': ColorTypeHelper.getColorType(type)}"
+        *ngFor="let type of pokemon.types">
+        {{type | uppercase}}
+      </div>
+    </div>
+    <div class="card-title">
+      Information
+    </div>
+    <div class="info">
+      <div class="card-text left">Height: <span>{{pokemon.height}}</span></div>
+      <div class="card-text right">Weight: <span>{{pokemon.weight}}</span></div>
+    </div>
+    <div class="card-title">
+      Moves
+    </div>
+    <div
+      class="row">
+      <span
+        class="type-text"
+         *ngFor="let type of pokemon.moves">
+        {{type}}
+      </span>
+    </div>
+  </div>
+</div>

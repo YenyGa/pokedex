@@ -19,3 +19,11 @@ export function pokemonReducer(state = initialState, action: PokemonActions): Po
       return state;
   }
 }
+
+const {
+  selectAll,
+  selectEntities
+} = adapter.getSelectors();
+
+export const selectAllPokemons = selectAll;
+export const selectPokemonEntities = selectEntities;
