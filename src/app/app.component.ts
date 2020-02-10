@@ -12,6 +12,6 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   redirectToMainPage() {
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('list');
   }
 }

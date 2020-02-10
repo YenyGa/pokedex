@@ -10,7 +10,10 @@ export class AuthService {
   constructor() { }
 
   signUp(user: UserModel): Observable<any> {
-    const users: UserModel[] = JSON.parse(localStorage.getItem('users'));
+    let users: UserModel[] = JSON.parse(localStorage.getItem('users'));
+    if (!users) {
+      users = [];
+    }
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
     return of({status: '201 Created'});

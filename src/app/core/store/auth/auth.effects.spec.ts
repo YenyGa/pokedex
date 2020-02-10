@@ -2,21 +2,21 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { PokemonEffects } from './auth.effects';
+import {AuthEffects} from './auth.effects';
 
 describe('PokemonEffects', () => {
   let actions$: Observable<any>;
-  let effects: PokemonEffects;
+  let effects: AuthEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        PokemonEffects,
+        AuthEffects,
         provideMockActions(() => actions$)
       ]
     });
 
-    effects = TestBed.get<PokemonEffects>(PokemonEffects);
+    effects = TestBed.get<AuthEffects>(AuthEffects);
   });
 
   it('should be created', () => {

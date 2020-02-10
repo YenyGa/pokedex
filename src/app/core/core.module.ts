@@ -7,13 +7,15 @@ import {PokemonEffects} from './store/pokemon/pokemon.effects';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../../environments/environment';
+import {AuthEffects} from './store/auth/auth.effects';
 
 @NgModule({
   declarations: [],
   imports: [
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([
-      PokemonEffects
+      PokemonEffects,
+      AuthEffects
     ]),
     CommonModule,
     HttpClientModule,
