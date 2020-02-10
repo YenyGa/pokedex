@@ -23,7 +23,7 @@ export class AuthService {
     const users: UserModel[] = JSON.parse(localStorage.getItem('users'));
     let userFound = false;
     users.forEach(savedUser => {
-      if (savedUser.name === user.name && savedUser.email === user.email && savedUser.password === user.password) {
+      if (savedUser.email === user.email && savedUser.password === user.password) {
         userFound = userFound || true;
       }
     });

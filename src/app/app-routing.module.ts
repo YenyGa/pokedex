@@ -6,16 +6,19 @@ import {PokemonDetailsComponent} from './components/sections/main/pokemon-detail
 import {PokemonListResolver} from './utils/resolvers/pokemon-list.resolver';
 import {SignUpComponent} from './components/sections/auth/sing-up/sign-up.component';
 import {LogInComponent} from './components/sections/auth/log-in/log-in.component';
+import {AuthGuardService} from './core/services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: 'list',
     component: PokemonListComponent,
-    resolve: { pokemonList: PokemonListResolver }
+    resolve: { pokemonList: PokemonListResolver },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'details/:id',
-    component: PokemonDetailsComponent
+    component: PokemonDetailsComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'sign-up',
@@ -24,6 +27,10 @@ const routes: Routes = [
   {
     path: '',
     component: LogInComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

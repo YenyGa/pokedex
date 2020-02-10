@@ -24,7 +24,6 @@ export class LogInComponent implements OnInit {
 
   ngOnInit(): void {
     this.logInForm = this.formBuilder.group({
-      name: [undefined, Validators.required],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
@@ -51,7 +50,7 @@ export class LogInComponent implements OnInit {
     if (this.logInForm.valid) {
       this.store.dispatch(new LogIn({
         user: {
-          name: this.logInForm.get('name').value,
+          name: undefined,
           email: this.logInForm.get('email').value,
           password: this.logInForm.get('password').value,
         }
