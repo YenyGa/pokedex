@@ -1,3 +1,13 @@
+@import '../../../../styles/_breakpoints.scss';
+
 .card-container {
   width: 25%;
+}
+
+@media (max-width: $sm) {
+  .card-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
 }

@@ -1,3 +1,5 @@
+@import '../../../../styles/_breakpoints.scss';
+
 .card {
   display: flex;
   margin: 0 auto;
@@ -41,5 +43,11 @@
     .type-text {
       margin-left: 2.5rem;
     }
+  }
+}
+
+@media (max-width: $sm) {
+  .card {
+    width: 100%;
   }
 }

@@ -1,3 +1,5 @@
+@import '../../../../styles/_breakpoints.scss';
+
 .form-container {
   margin: 0 auto;
   text-align: center;
@@ -18,4 +20,10 @@
   background-color: #d2aba3;
   max-width: unset;
   font-size: 1.2rem;
+}
+
+@media (max-width: $sm) {
+  .form-container {
+    width: 80%;
+  }
 }
