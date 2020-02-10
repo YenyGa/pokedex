@@ -38,6 +38,10 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+  goToLogIn() {
+    this.router.navigateByUrl('');
+  }
+
   signUp() {
     this.actions$.pipe(
       ofType<SignedUp>(AuthActionTypes.SignedUp),

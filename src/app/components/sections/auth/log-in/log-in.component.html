@@ -8,25 +8,32 @@
   <ngb-toast *ngIf="showToast" (hide)="!showToast">
     Wrong credentials
   </ngb-toast>
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Name"
-    [formControl]="logInForm.get('name')">
-  <input
-    type="email"
-    class="form-control"
-    placeholder="Email"
-    [formControl]="logInForm.get('email')">
-  <input
-    type="password"
-    class="form-control"
-    placeholder="Password"
-    [formControl]="logInForm.get('password')">
   <div
-    class="sign-up"
-    (click)="goToSignUp()">
-    Sign up
+    class="form-group"
+    [ngClass]="{'has-error': logInForm.get('name').invalid}">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Name"
+      [formControl]="logInForm.get('name')">
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': logInForm.get('email').invalid}">
+    <input
+      type="email"
+      class="form-control"
+      placeholder="Email"
+      [formControl]="logInForm.get('email')">
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': logInForm.get('password').invalid}">
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      [formControl]="logInForm.get('password')">
   </div>
   <button
     type="submit"
@@ -34,4 +41,9 @@
     [disabled]="logInForm.invalid">
     Submit
   </button>
+  <div
+    class="sign-up"
+    (click)="goToSignUp()">
+    Sign up
+  </div>
 </form>

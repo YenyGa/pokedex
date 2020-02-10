@@ -8,30 +8,51 @@
   <ngb-toast *ngIf="showToast" (hide)="!showToast">
     You signed up successfully!
   </ngb-toast>
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Name"
-    [formControl]="signUpForm.get('name')">
-  <input
-    type="email"
-    class="form-control"
-    placeholder="Email"
-    [formControl]="signUpForm.get('email')">
-  <input
-    type="password"
-    class="form-control"
-    placeholder="Password"
-    [formControl]="signUpForm.get('password')">
-  <input
-    type="password"
-    class="form-control"
-    placeholder="Type Password Again"
-    [formControl]="signUpForm.get('secondPassword')">
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': signUpForm.get('name').invalid}">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Name"
+      [formControl]="signUpForm.get('name')">
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': signUpForm.get('email').invalid}">
+    <input
+      type="email"
+      class="form-control"
+      placeholder="Email"
+      [formControl]="signUpForm.get('email')">
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': signUpForm.get('password').invalid}">
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      [formControl]="signUpForm.get('password')">
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': signUpForm.get('password').invalid}">
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Type Password Again"
+      [formControl]="signUpForm.get('secondPassword')">
+  </div>
   <button
     type="submit"
     class="btn btn-primary"
     [disabled]="signUpForm.invalid">
     Submit
   </button>
+  <div
+    class="log-in"
+    (click)="goToLogIn()">
+    Cancel
+  </div>
 </form>
