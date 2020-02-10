@@ -14,7 +14,7 @@ export class PokeApiService {
   constructor(private http: HttpClient) { }
 
   listPokemons(): Observable<PokemonModel[]> {
-    return this.http.get<any>(`${environment.apiConstants.POKE_API_URL}pokemon/?offset=0&limit=50"`)
+    return this.http.get<any>(`${environment.apiConstants.POKE_API_URL}pokemon/?offset=0&limit=964"`)
       .pipe(
         switchMap(response => {
           const pokemonNames: string[] = response.results.map(result => result.name);

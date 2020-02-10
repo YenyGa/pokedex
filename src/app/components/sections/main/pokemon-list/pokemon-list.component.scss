@@ -4,6 +4,11 @@
   width: 25%;
 }
 
+.ngx-pagination {
+  padding-left: 0;
+  text-align: center;
+}
+
 @media (max-width: $sm) {
   .card-container {
     padding-right: 15px;

@@ -8,7 +8,8 @@
 <div class="row">
   <app-pokemon-card
     class="card-container"
-    *ngFor="let pokemon of filteredList"
+    *ngFor="let pokemon of pokemonList | paginate: { itemsPerPage: 50, currentPage: p }"
     [pokemon]="pokemon">
   </app-pokemon-card>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
