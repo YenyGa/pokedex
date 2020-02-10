@@ -5,6 +5,7 @@ import {PokemonListComponent} from './components/sections/main/pokemon-list/poke
 import {PokemonDetailsComponent} from './components/sections/main/pokemon-details/pokemon-details.component';
 import {PokemonListResolver} from './utils/resolvers/pokemon-list.resolver';
 import {SignUpComponent} from './components/sections/auth/sing-up/sign-up.component';
+import {LogInComponent} from './components/sections/auth/log-in/log-in.component';
 
 const routes: Routes = [
   {
@@ -17,8 +18,12 @@ const routes: Routes = [
     component: PokemonDetailsComponent
   },
   {
-    path: '',
+    path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: '',
+    component: LogInComponent
   }
 ];
 

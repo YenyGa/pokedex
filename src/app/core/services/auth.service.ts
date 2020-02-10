@@ -19,11 +19,18 @@ export class AuthService {
     return of({status: '201 Created'});
   }
 
-  logIn(user: UserModel): Observable<any> {
+  logIn(user: UserModel): Observable<UserModel> {
     const users: UserModel[] = JSON.parse(localStorage.getItem('users'));
-    if (users.includes(user)) {
-      return of({status: '200 OK'});
+    let userFound = false;
+    users.forEach(savedUser => {
+      if (savedUser.name === user.name && savedUser.email === user.email && savedUser.password === user.password) {
+        userFound = userFound || true;
+      }
+    });
+    if (userFound) {
+      return of(user);
+    } else {
+      return of(undefined);
     }
-    return throwError({status: '401 Unauthorized'});
   }
 }

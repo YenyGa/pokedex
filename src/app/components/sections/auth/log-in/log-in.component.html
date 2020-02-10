@@ -1,37 +1,37 @@
 <form
   class="form-container"
-  [formGroup]="signUpForm"
-  (submit)="signUp()">
+  [formGroup]="logInForm"
+  (submit)="logIn()">
   <h1 class="form-title">
-    Sign Up
+    Log In
   </h1>
   <ngb-toast *ngIf="showToast" (hide)="!showToast">
-    You signed up successfully!
+    Wrong credentials
   </ngb-toast>
   <input
     type="text"
     class="form-control"
     placeholder="Name"
-    [formControl]="signUpForm.get('name')">
+    [formControl]="logInForm.get('name')">
   <input
     type="email"
     class="form-control"
     placeholder="Email"
-    [formControl]="signUpForm.get('email')">
+    [formControl]="logInForm.get('email')">
   <input
     type="password"
     class="form-control"
     placeholder="Password"
-    [formControl]="signUpForm.get('password')">
-  <input
-    type="password"
-    class="form-control"
-    placeholder="Type Password Again"
-    [formControl]="signUpForm.get('secondPassword')">
+    [formControl]="logInForm.get('password')">
+  <div
+    class="sign-up"
+    (click)="goToSignUp()">
+    Sign up
+  </div>
   <button
     type="submit"
     class="btn btn-primary"
-    [disabled]="signUpForm.invalid">
+    [disabled]="logInForm.invalid">
     Submit
   </button>
 </form>

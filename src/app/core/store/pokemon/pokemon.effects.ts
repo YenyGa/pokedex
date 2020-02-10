@@ -25,9 +25,7 @@ export class PokemonEffects {
         })
       )),
     catchError(error => {
-      return of({
-        payload: {error}
-      });
+      return of(new ErrorEncountered({error}));
     })
   );
 

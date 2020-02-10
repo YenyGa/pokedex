@@ -9,10 +9,16 @@
   .form-control {
     margin: 2rem 0;
   }
+  .sign-up {
+    color: #1976d2;
+    cursor: pointer;
+    margin: 1rem 0;
+    text-decoration: underline;
+  }
 }
 
 .toast {
-  background-color: #b3d2b3;
+  background-color: #d2aba3;
   max-width: unset;
   font-size: 1.2rem;
 }
