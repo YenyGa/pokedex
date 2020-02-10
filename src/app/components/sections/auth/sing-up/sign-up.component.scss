@@ -1,0 +1,18 @@
+.form-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  .form-title {
+    color: #292a2b;
+    margin-bottom: 4rem;
+  }
+  .form-control {
+    margin: 2rem 0;
+  }
+}
+
+.toast {
+  background-color: #b3d2b3;
+  max-width: unset;
+  font-size: 1.2rem;
+}

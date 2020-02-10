@@ -24,9 +24,7 @@ export class AuthEffects {
         })
       )),
     catchError(error => {
-      return of({
-        payload: {error}
-      });
+      return of(new ErrorEncountered({error}));
     })
   );
 
@@ -35,17 +33,15 @@ export class AuthEffects {
     ofType<LogIn>(AuthActionTypes.LogIn),
     switchMap(({payload}) => this.authService.logIn(payload.user)
       .pipe(
-        map(() => {
-          return new LogedIn({user: payload.user});
+        map(user => {
+          return new LogedIn({user});
         }),
         catchError(error => {
           return of(new ErrorEncountered({error}));
         })
       )),
     catchError(error => {
-      return of({
-        payload: {error}
-      });
+      return of(new ErrorEncountered({error}));
     })
   );
 

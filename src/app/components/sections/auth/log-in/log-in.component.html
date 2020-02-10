@@ -1,0 +1,37 @@
+<form
+  class="form-container"
+  [formGroup]="logInForm"
+  (submit)="logIn()">
+  <h1 class="form-title">
+    Log In
+  </h1>
+  <ngb-toast *ngIf="showToast" (hide)="!showToast">
+    Wrong credentials
+  </ngb-toast>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Name"
+    [formControl]="logInForm.get('name')">
+  <input
+    type="email"
+    class="form-control"
+    placeholder="Email"
+    [formControl]="logInForm.get('email')">
+  <input
+    type="password"
+    class="form-control"
+    placeholder="Password"
+    [formControl]="logInForm.get('password')">
+  <div
+    class="sign-up"
+    (click)="goToSignUp()">
+    Sign up
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="logInForm.invalid">
+    Submit
+  </button>
+</form>

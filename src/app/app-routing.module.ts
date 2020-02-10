@@ -4,10 +4,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {PokemonListComponent} from './components/sections/main/pokemon-list/pokemon-list.component';
 import {PokemonDetailsComponent} from './components/sections/main/pokemon-details/pokemon-details.component';
 import {PokemonListResolver} from './utils/resolvers/pokemon-list.resolver';
+import {SignUpComponent} from './components/sections/auth/sing-up/sign-up.component';
+import {LogInComponent} from './components/sections/auth/log-in/log-in.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'list',
     component: PokemonListComponent,
     resolve: { pokemonList: PokemonListResolver }
   },
@@ -15,6 +17,14 @@ const routes: Routes = [
     path: 'details/:id',
     component: PokemonDetailsComponent
   },
+  {
+    path: 'sign-up',
+    component: SignUpComponent
+  },
+  {
+    path: '',
+    component: LogInComponent
+  }
 ];
 
 @NgModule({
